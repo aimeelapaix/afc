@@ -1,0 +1,31 @@
+package final_project;
+    import java.sql.*;
+    import javax.swing.JOptionPane;
+public class connect {
+    Connection con = null;
+    String driver, url;
+            public static void main(String[] args) 
+            {    
+            }         
+    public connect() throws SQLException
+        {
+            //try
+               // {
+                    driver = "net.ucanaccess-jdbc.UcanaccessDriver";
+                    url ="jdbc:ucanaccess://home/rachelle/Escritorio/base.accdb";
+                    con=DriverManager.getConnection(url);
+                    Statement st= con.createStatement();
+                    st.executeQuery("insert into Usuario (Usuario, Contraseña, ContraResp) values (1, 2, 3)");
+                        JOptionPane.showMessageDialog(null, "Conexion exitosa.");
+              /*  }
+            catch(Exception e)
+                {
+                    JOptionPane.showMessageDialog(null, "Matame");
+                        con = null;
+                }*/
+        };
+    public Connection getConnection()
+        {
+            return con;
+        };
+}
